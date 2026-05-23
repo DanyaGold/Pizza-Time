@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'menu/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="top-bar">
+    <div class="categories">
+        <!-- список категорий -->
+        <a href="#">Все</a>
+        <a href="#">Мясные</a>
+        <a href="#">Вегетарианские</a>
+    </div>
+
+    <div class="sort">
+        <select>
+            <option>По цене ↑</option>
+            <option>По цене ↓</option>
+            <option>По названию</option>
+        </select>
+    </div>
+</div>
+
+<div class="layout">
+
+    <!-- ФИЛЬТРЫ -->
+    <aside class="sidebar">
+        <div class="filter">
+            <h3>Цена</h3>
+            <input type="number" placeholder="От">
+            <input type="number" placeholder="До">
+        </div>
+
+        <div class="filter">
+            <h3>Ингредиенты</h3>
+            <label><input type="checkbox"> Сыр</label>
+            <label><input type="checkbox"> Грибы</label>
+            <label><input type="checkbox"> Пепперони</label>
+        </div>
+    </aside>
+
+    <!-- КОНТЕНТ -->
+    <section class="content">
+        {% for p in pizza %}
+        <div class="card">
+            <img src="{% static 'menu/images/pizza1.png'%}" alt="pizza">
+
+            <h3>{{ p.name }}</h3>
+
+            <p class="ingredients">
+                сыр, томатный соус, пепперони
+            </p>
+
+            <div class="card-bottom">
+                <span class="price">{{ p.price }}</span>
+                <button class="add-btn">Добавить</button>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+</div>
+
+
+{% endblock %}

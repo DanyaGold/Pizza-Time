@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Pizza Time{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_css %}
+    {% endblock %}
+</head>
+<body>
+    <!-- Шапка -->
+    <!-- 🔥 HEADER -->
+    <header class="header">
+        <div class="container header-content">
+
+            <!-- ЛЕВО: ЛОГО -->
+            <div class="logo">
+                <h1>PizzaTime</h1>
+                <p class="tagline">Лучшая пицца в городе</p>
+            </div>
+
+            <!-- ЦЕНТР: ПОИСК -->
+            <div class="search">
+                <form method="get" action="#">
+                    <input
+                        type="text"
+                        name="search"
+                        placeholder="Поиск пиццы..."
+                    >
+                    <button type="submit">🔍</button>
+                </form>
+            </div>
+
+            <!-- ПРАВО: ПРОФИЛЬ + КОРЗИНА -->
+            <div class="actions">
+                <a href="#" class="btn">👤</a>
+                <a href="#" class="btn cart-btn">
+                    🛒 <span class="cart-count">0</span>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- 🔹 ОСНОВНОЙ КОНТЕНТ -->
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- 🔥 FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+
+            <!-- Контакты -->
+            <div class="contacts">
+                <h3>Контакты</h3>
+                <p>📍 Франкфурт</p>
+                <p>📞 +49 123 456 789</p>
+                <p>✉️ info@pizzatime.com</p>
+            </div>
+
+            <!-- Соцсети -->
+            <div class="socials">
+                <h3>Мы в соцсетях</h3>
+                <div class="social-buttons">
+                    <a href="#">Instagram</a>
+                    <a href="#">Telegram</a>
+                    <a href="#">YouTube</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

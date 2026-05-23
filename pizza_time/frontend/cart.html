@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя Корзина</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <h2 class="mb-4">Корзина</h2>
+
+    <div class="row">
+        <!-- Список товаров -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Продукт</th>
+                                    <th>Цена</th>
+                                    <th>Кол-во</th>
+                                    <th>Итого</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <!-- 1. Добавляем id="cart-items-container" и удаляем ручной <tr> -->
+                            <tbody id="cart-items-container">
+                                <!-- Сюда JS вставит товары -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Итоги -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Детали заказа</h5>
+
+                    <div class="d-flex justify-content-between mb-4">
+                        <strong>К оплате</strong>
+                        <!-- 3. Этот ID у нас уже был в JS -->
+                        <strong id="total-price-display" class="text-primary fs-5">0.00 ₽</strong>
+                    </div>
+                    <button id="order-btn" class="btn btn-primary w-100 btn-lg">Оформить заказ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Сначала подключаем твой скрипт, потом Bootstrap -->
+<script src="js/cart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

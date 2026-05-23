@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Time</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<!-- Шапка -->
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+        <div class="container">
+            
+            <a class="navbar-brand d-flex flex-column" href="/">
+                <span class="h3 fw-bold mb-0 text-uppercase">Pizza Time</span>
+                <small class="text-muted" style="font-size: 0.7em;">Лучшая пицца в городе</small>
+            </a>
+
+            <div class="d-flex align-items-center gap-3">
+                <div id="guest-content">
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        Войти
+                    </button>
+                </div>
+
+                <div id="user-content" class="d-none align-items-center gap-3">
+                    <span id="user-greeting" class="fw-medium d-none d-md-inline text-muted"></span>
+                    
+                    <a href="profile.html" class="btn btn-light rounded-circle shadow-sm">👤</a>
+                    
+                    <button id="cart-button" class="btn btn-primary position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-aside">
+                        🛒 <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </button>
+
+                    <button id="history-btn" type="button" class="btn btn-success d-inline-flex align-items-center gap-2">
+                            Мои заказы
+                    </button>
+                    
+                    <button id="logout-btn" class="btn btn-sm btn-link text-secondary text-decoration-none">
+                        Выйти
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+<!-- Основной контент -->
+<main class="container py-4">
+    <div class="row g-4">
+        <aside class="col-lg-3">
+            <div class="card shadow-sm p-3">
+                <h5 class="mb-3">Фильтры</h5>
+                
+                <input type="text" id="search" class="form-control mb-3" placeholder="Поиск...">
+
+                <div id="categories" class="btn-group-vertical w-100 mb-3" role="group">
+                    <button class="btn btn-outline-primary active" data-category="">Все</button>
+                    <button class="btn btn-outline-primary" data-category="ostraya">Мясные</button>
+                    <button class="btn btn-outline-primary" data-category="vegan">Веганские</button>
+                </div>
+
+                <div class="row g-2 mb-3">
+                    <div class="col">
+                        <input type="number" id="min-price" class="form-control" placeholder="Мин. цена">
+                    </div>
+                    <div class="col">
+                        <input type="number" id="max-price" class="form-control" placeholder="Макс. цена">
+                    </div>
+                </div>
+
+                <select id="ordering" class="form-select mb-3">
+                    <option value="name">По названию</option>
+                    <option value="-price">Цена ↓</option>
+                    <option value="price">Цена ↑</option>
+                </select>
+
+                <button id="load" class="btn btn-primary w-100 mb-2">Загрузить</button>
+                <button id="reset-filters" class="btn btn-outline-secondary w-100">Сбросить</button>
+            </div>
+        </aside>
+
+        <section class="col-lg-6">
+            <h3 class="mb-4">Пиццы</h3>
+            <div id="pizza-list" class="row row-cols-1 row-cols-md-2 g-3"></div>
+
+            <nav class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><button id="prev" class="page-link">Назад</button></li>
+                    <li class="page-item disabled"><span id="page-info" class="page-link"></span></li>
+                    <li class="page-item"><button id="next" class="page-link">Вперед</button></li>
+                </ul>
+            </nav>
+        </section>
+
+        <aside id="cart-aside-container" class="col-lg-3">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">Корзина</h5>
+                </div>
+                <div class="card-body">
+                    <div id="cart-items" class="list-group list-group-flush mb-3"></div>
+                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                        <strong>Итого:</strong>
+                        <span class="h5 mb-0 text-primary"><span id="cart-total-price">0</span> ₽</span>
+                    </div>
+                    <button id="checkout-btn" class="btn btn-success w-100 mt-3">Оформить заказ</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+
+<!-- Футер -->
+<footer class="bg-dark text-light py-5 mt-5">
+    <div class="container">
+        <div class="row g-4">
+            
+            <div class="col-md-6 col-lg-4">
+                <h5 class="fw-bold mb-3 text-uppercase">Контакты</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">📍 Франкфурт</li>
+                    <li class="mb-2">📞 +49 123 456 789</li>
+                    <li class="mb-2 text-muted">
+                        <a href="mailto:info@pizzatime.com" class="text-decoration-none text-light opacity-75">
+                            ✉️ info@pizzatime.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <h5 class="fw-bold mb-3 text-uppercase">Мы в соцсетях</h5>
+                <div class="d-flex gap-3">
+                    <a href="#" class="btn btn-outline-light btn-sm px-3 rounded-pill">Instagram</a>
+                    <a href="#" class="btn btn-outline-light btn-sm px-3 rounded-pill">Telegram</a>
+                    <a href="#" class="btn btn-outline-light btn-sm px-3 rounded-pill">YouTube</a>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-lg-4">
+                <h5 class="fw-bold mb-3 text-uppercase">Режим работы</h5>
+                <p class="small text-muted mb-0">Ежедневно: 10:00 — 22:00</p>
+                <p class="small text-muted">Доставка: круглосуточно</p>
+            </div>
+
+        </div>
+
+        <div class="border-top border-secondary mt-4 pt-3 text-center">
+            <p class="small text-muted mb-0">&copy; 2026 Pizza Time. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Модальное окно авторизации -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Авторизация</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="login-form">
+          <div class="mb-3">
+            <label class="form-label">Логин</label>
+            <input type="text" id="login-user" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Пароль</label>
+            <input type="password" id="login-pass" class="form-control" required>
+          </div>
+          <p class="mt-3 text-center">
+            Нет аккаунта? 
+            <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Зарегистрироваться</a>
+          </p>
+          <button type="submit" class="btn btn-success w-100">Войти</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Модальное окно регистрации -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Создать аккаунт</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="register-form">
+          <div class="mb-3">
+            <label class="form-label">Логин</label>
+            <input type="text" id="reg-user" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Пароль</label>
+            <input type="password" id="reg-pass" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Подтвердите пароль</label>
+            <input type="password" id="reg-pass-confirm" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" id="reg-email" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>

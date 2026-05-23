@@ -1,0 +1,132 @@
+[
+{
+  "model": "menu.pizza",
+  "pk": 1,
+  "fields": {
+    "name": "Пепперони",
+    "description": "",
+    "price": "490.00",
+    "image": "pizzas/5_jHZW8Qq.avif",
+    "is_available": true,
+    "created_at": "2026-04-09T13:26:25.441Z",
+    "updated_at": "2026-05-06T19:33:02.216Z",
+    "category": 1
+  }
+},
+{
+  "model": "menu.pizza",
+  "pk": 2,
+  "fields": {
+    "name": "Маргарита",
+    "description": "",
+    "price": "350.00",
+    "image": "pizzas/6_8IQSL76.avif",
+    "is_available": true,
+    "created_at": "2026-04-09T13:27:55.682Z",
+    "updated_at": "2026-05-06T19:35:20.240Z",
+    "category": 4
+  }
+},
+{
+  "model": "menu.pizza",
+  "pk": 3,
+  "fields": {
+    "name": "Жгучий перчик",
+    "description": "",
+    "price": "700.00",
+    "image": "pizzas/4_1spjaDL.avif",
+    "is_available": true,
+    "created_at": "2026-04-09T13:28:16.464Z",
+    "updated_at": "2026-05-06T19:34:13.995Z",
+    "category": 2
+  }
+},
+{
+  "model": "menu.pizza",
+  "pk": 4,
+  "fields": {
+    "name": "С ананасами",
+    "description": "",
+    "price": "650.00",
+    "image": "pizzas/3_LUrFohR.avif",
+    "is_available": true,
+    "created_at": "2026-04-09T13:28:46.929Z",
+    "updated_at": "2026-05-06T19:34:24.072Z",
+    "category": 3
+  }
+},
+{
+  "model": "menu.pizza",
+  "pk": 5,
+  "fields": {
+    "name": "Вкусняшка",
+    "description": "",
+    "price": "900.00",
+    "image": "pizzas/2_1mRhiu4.avif",
+    "is_available": true,
+    "created_at": "2026-04-09T21:11:47.169Z",
+    "updated_at": "2026-05-06T19:35:05.024Z",
+    "category": 1
+  }
+},
+{
+  "model": "menu.pizza",
+  "pk": 6,
+  "fields": {
+    "name": "Адское пекло",
+    "description": "",
+    "price": "666.00",
+    "image": "pizzas/7.avif",
+    "is_available": true,
+    "created_at": "2026-04-09T21:12:05.887Z",
+    "updated_at": "2026-05-06T19:36:06.518Z",
+    "category": 2
+  }
+},
+{
+  "model": "menu.pizza",
+  "pk": 7,
+  "fields": {
+    "name": "Горячая штучка",
+    "description": "",
+    "price": "820.00",
+    "image": "pizzas/1_VKewUUP.avif",
+    "is_available": true,
+    "created_at": "2026-04-09T21:12:21.619Z",
+    "updated_at": "2026-05-06T19:36:19.483Z",
+    "category": 2
+  }
+},
+{
+  "model": "menu.category",
+  "pk": 1,
+  "fields": {
+    "name": "Мясная",
+    "slug": "myasnaya"
+  }
+},
+{
+  "model": "menu.category",
+  "pk": 2,
+  "fields": {
+    "name": "Острая",
+    "slug": "ostraya"
+  }
+},
+{
+  "model": "menu.category",
+  "pk": 3,
+  "fields": {
+    "name": "Сладкая",
+    "slug": "sladkaya"
+  }
+},
+{
+  "model": "menu.category",
+  "pk": 4,
+  "fields": {
+    "name": "Вегетарианская",
+    "slug": "vegan"
+  }
+}
+]

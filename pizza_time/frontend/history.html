@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История заказов</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .accordion-button:not(.collapsed) {
+            background-color: #f8f9fa;
+            color: #000;
+            box-shadow: none;
+        }
+        .status-badge {
+            min-width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container py-5" style="max-width: 800px;">
+        <div class="d-flex align-items-center mb-4">
+            <a href="index.html" class="btn btn-outline-secondary btn-sm me-3">
+                <i class="bi bi-arrow-left"></i> В профиль
+            </a>
+            <h2 class="mb-0">История моих заказов</h2>
+        </div>
+
+        <!-- Спиннер загрузки -->
+        <div id="loading-spinner" class="text-center my-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Загрузка...</span>
+            </div>
+        </div>
+
+        <!-- Блок сообщения, если заказов нет -->
+        <div id="empty-orders" class="alert alert-info text-center d-none my-4" role="alert">
+            <i class="bi bi-bag-x fs-3 d-block mb-2"></i>
+            Вы еще не сделали ни одного заказа. Самое время заказать пиццу!
+        </div>
+
+        <!-- Контейнер для аккордеона с заказами -->
+        <div class="accordion" id="ordersAccordion">
+            <!-- Сюда JS будет вставлять карточки заказов -->
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Подключаем наш JS файл -->
+    <script src="/js/history.js"></script>
+</body>
+</html>
